@@ -8,7 +8,7 @@ const studentData = {
     college: 'كلية الشريعة',
     major: 'الشريعة',
     level: 'الأول',
-    semester: 'الأول 1446هـ',
+    semester: 'الأول 1447هـ',
     gpa: null, // New student
     registeredHours: 18,
     maxHours: 21,

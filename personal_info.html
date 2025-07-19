@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>البيانات الشخصية - بوابة الخدمات الأكاديمية</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="dashboard-header">
+        <div class="header-container">
+            <div class="header-logo">
+                <img src="logo.png" alt="شعار الجامعة الإسلامية" class="logo">
+                <div class="university-info">
+                    <h1>الجامعة الإسلامية بالمدينة المنورة</h1>
+                    <p>بوابة الخدمات الأكاديمية</p>
+                </div>
+            </div>
+            <div class="header-user">
+                <span class="user-name"></span>
+                <span class="user-id"></span>
+                <button class="logout-btn" onclick="logout()">تسجيل الخروج</button>
+            </div>
+        </div>
+    </header>
+
+    <nav class="page-nav">
+        <div class="nav-container">
+            <button class="back-btn" onclick="goToDashboard()">← العودة للوحة التحكم</button>
+            <h2>البيانات الشخصية</h2>
+        </div>
+    </nav>
+
+    <main class="page-main">
+        <div class="page-container">
+            <div class="info-card">
+                <h3>البيانات الأساسية</h3>
+                <form id="personalInfoForm">
+                    <div class="info-grid">
+                        <div class="form-group">
+                            <label for="fullName">الاسم الكامل</label>
+                            <input type="text" id="fullName" value="حصة مسحل فواز العتيبي" readonly>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="studentId">الرقم الجامعي</label>
+                            <input type="text" id="studentId" value="202401001" readonly>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="nationalId">رقم الهوية الوطنية</label>
+                            <input type="text" id="nationalId" value="1034612992" readonly>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">رقم الجوال</label>
+                            <input type="tel" id="phone" value="0550664728">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">البريد الإلكتروني</label>
+                            <input type="email" id="email" value="hessa.alataibi@iu.edu.sa">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="alternateEmail">البريد الإلكتروني البديل</label>
+                            <input type="email" id="alternateEmail" placeholder="أدخل البريد الإلكتروني البديل">
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="info-card">
+                <h3>البيانات الأكاديمية</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="label">الكلية:</span>
+                        <span class="value">كلية الشريعة</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">التخصص:</span>
+                        <span class="value">الشريعة</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">المستوى الدراسي:</span>
+                        <span class="value">الأول</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">الفصل الحالي:</span>
+                        <span class="value">الأول 1446هـ</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">تاريخ القبول:</span>
+                        <span class="value">1446/01/01هـ</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">حالة القيد:</span>
+                        <span class="value">مستمر</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <h3>بيانات الاتصال</h3>
+                <form id="contactInfoForm">
+                    <div class="info-grid">
+                        <div class="form-group">
+                            <label for="address">العنوان الحالي</label>
+                            <textarea id="address" rows="3" placeholder="أدخل العنوان الحالي">المدينة المنورة، المملكة العربية السعودية</textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="permanentAddress">العنوان الدائم</label>
+                            <textarea id="permanentAddress" rows="3" placeholder="أدخل العنوان الدائم">الرياض، المملكة العربية السعودية</textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="emergencyContact">جهة الاتصال في حالات الطوارئ</label>
+                            <input type="text" id="emergencyContact" placeholder="اسم جهة الاتصال">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="emergencyPhone">رقم هاتف الطوارئ</label>
+                            <input type="tel" id="emergencyPhone" placeholder="رقم هاتف الطوارئ">
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="info-card">
+                <h3>الإحصائيات الأكاديمية</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="label">إجمالي الساعات المكتسبة:</span>
+                        <span class="value">0 ساعة</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">الساعات المسجلة حالياً:</span>
+                        <span class="value">18 ساعة</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">المعدل التراكمي:</span>
+                        <span class="value">غير محسوب (طالبة مستجدة)</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">المعدل الفصلي:</span>
+                        <span class="value">غير محسوب (طالبة مستجدة)</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">عدد الفصول المنجزة:</span>
+                        <span class="value">0 فصل</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">التقدير العام:</span>
+                        <span class="value">غير محسوب</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-actions">
+                <button class="btn-success" onclick="updatePersonalInfo()">حفظ التغييرات</button>
+                <button class="btn-secondary" onclick="goToDashboard()">العودة للوحة التحكم</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 الجامعة الإسلامية بالمدينة المنورة - جميع الحقوق محفوظة</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

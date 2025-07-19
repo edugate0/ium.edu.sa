@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل المقررات - بوابة الخدمات الأكاديمية</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="dashboard-header">
+        <div class="header-container">
+            <div class="header-logo">
+                <img src="logo.png" alt="شعار الجامعة الإسلامية" class="logo">
+                <div class="university-info">
+                    <h1>الجامعة الإسلامية بالمدينة المنورة</h1>
+                    <p>بوابة الخدمات الأكاديمية</p>
+                </div>
+            </div>
+            <div class="header-user">
+                <span class="user-name"></span>
+                <span class="user-id"></span>
+                <button class="logout-btn" onclick="logout()">تسجيل الخروج</button>
+            </div>
+        </div>
+    </header>
+
+    <nav class="page-nav">
+        <div class="nav-container">
+            <button class="back-btn" onclick="goToDashboard()">← العودة للوحة التحكم</button>
+            <h2>تسجيل المقررات</h2>
+        </div>
+    </nav>
+
+    <main class="page-main">
+        <div class="page-container">
+            <div class="registration-info">
+                <h3>معلومات التسجيل</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="label">الفصل الدراسي:</span>
+                        <span class="value">الأول 1446هـ</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">الساعات المسجلة:</span>
+                        <span class="value">18 ساعة</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">الحد الأقصى للساعات:</span>
+                        <span class="value">21 ساعة</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">الساعات المتاحة:</span>
+                        <span class="value">3 ساعات</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <h3>المقررات المسجلة</h3>
+                <div class="courses-table">
+                    <div class="table-header">
+                        <div class="col">رمز المقرر</div>
+                        <div class="col">اسم المقرر</div>
+                        <div class="col">الساعات</div>
+                        <div class="col">المدرس</div>
+                        <div class="col">الوقت</div>
+                        <div class="col">الإجراءات</div>
+                    </div>
+                    
+                    <div class="table-row">
+                        <div class="col" data-label="رمز المقرر">SHAR101</div>
+                        <div class="col" data-label="اسم المقرر">مقدمة في علوم الشريعة</div>
+                        <div class="col" data-label="الساعات">3</div>
+                        <div class="col" data-label="المدرس">د. محمد الأحمد</div>
+                        <div class="col" data-label="الوقت">الأحد والثلاثاء 8:00-9:30</div>
+                        <div class="col" data-label="الإجراءات">
+                            <button class="btn-sm btn-danger" onclick="dropCourse('SHAR101')">حذف</button>
+                        </div>
+                    </div>
+
+                    <div class="table-row">
+                        <div class="col" data-label="رمز المقرر">ARAB101</div>
+                        <div class="col" data-label="اسم المقرر">اللغة العربية (1)</div>
+                        <div class="col" data-label="الساعات">3</div>
+                        <div class="col" data-label="المدرس">د. عبدالله السالم</div>
+                        <div class="col" data-label="الوقت">الاثنين والأربعاء 10:00-11:30</div>
+                        <div class="col" data-label="الإجراءات">
+                            <button class="btn-sm btn-danger" onclick="dropCourse('ARAB101')">حذف</button>
+                        </div>
+                    </div>
+
+                    <div class="table-row">
+                        <div class="col" data-label="رمز المقرر">QURAN101</div>
+                        <div class="col" data-label="اسم المقرر">القرآن الكريم وعلومه (1)</div>
+                        <div class="col" data-label="الساعات">3</div>
+                        <div class="col" data-label="المدرس">د. أحمد المحمود</div>
+                        <div class="col" data-label="الوقت">الثلاثاء والخميس 8:00-9:30</div>
+                        <div class="col" data-label="الإجراءات">
+                            <button class="btn-sm btn-danger" onclick="dropCourse('QURAN101')">حذف</button>
+                        </div>
+                    </div>
+
+                    <div class="table-row">
+                        <div class="col" data-label="رمز المقرر">HADITH101</div>
+                        <div class="col" data-label="اسم المقرر">الحديث الشريف وعلومه (1)</div>
+                        <div class="col" data-label="الساعات">3</div>
+                        <div class="col" data-label="المدرس">د. سالم الغامدي</div>
+                        <div class="col" data-label="الوقت">الأحد والأربعاء 10:00-11:30</div>
+                        <div class="col" data-label="الإجراءات">
+                            <button class="btn-sm btn-danger" onclick="dropCourse('HADITH101')">حذف</button>
+                        </div>
+                    </div>
+
+                    <div class="table-row">
+                        <div class="col" data-label="رمز المقرر">FIQH101</div>
+                        <div class="col" data-label="اسم المقرر">الفقه الإسلامي (1)</div>
+                        <div class="col" data-label="الساعات">3</div>
+                        <div class="col" data-label="المدرس">د. خالد العتيبي</div>
+                        <div class="col" data-label="الوقت">الاثنين والخميس 8:00-9:30</div>
+                        <div class="col" data-label="الإجراءات">
+                            <button class="btn-sm btn-danger" onclick="dropCourse('FIQH101')">حذف</button>
+                        </div>
+                    </div>
+
+                    <div class="table-row">
+                        <div class="col" data-label="رمز المقرر">AQIDA101</div>
+                        <div class="col" data-label="اسم المقرر">العقيدة الإسلامية (1)</div>
+                        <div class="col" data-label="الساعات">3</div>
+                        <div class="col" data-label="المدرس">د. عبدالرحمن الحربي</div>
+                        <div class="col" data-label="الوقت">الثلاثاء والخميس 10:00-11:30</div>
+                        <div class="col" data-label="الإجراءات">
+                            <button class="btn-sm btn-danger" onclick="dropCourse('AQIDA101')">حذف</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <h3>المقررات المتاحة للتسجيل</h3>
+                <div class="courses-table">
+                    <div class="table-header">
+                        <div class="col">رمز المقرر</div>
+                        <div class="col">اسم المقرر</div>
+                        <div class="col">الساعات</div>
+                        <div class="col">المدرس</div>
+                        <div class="col">الوقت</div>
+                        <div class="col">الإجراءات</div>
+                    </div>
+                    
+                    <div class="table-row">
+                        <div class="col" data-label="رمز المقرر">ENGL101</div>
+                        <div class="col" data-label="اسم المقرر">اللغة الإنجليزية (1)</div>
+                        <div class="col" data-label="الساعات">3</div>
+                        <div class="col" data-label="المدرس">د. فاطمة الزهراني</div>
+                        <div class="col" data-label="الوقت">الأحد والثلاثاء 12:00-1:30</div>
+                        <div class="col" data-label="الإجراءات">
+                            <button class="btn-sm btn-primary" onclick="registerCourse('ENGL101')">تسجيل</button>
+                        </div>
+                    </div>
+
+                    <div class="table-row">
+                        <div class="col" data-label="رمز المقرر">COMP101</div>
+                        <div class="col" data-label="اسم المقرر">مهارات الحاسوب</div>
+                        <div class="col" data-label="الساعات">2</div>
+                        <div class="col" data-label="المدرس">أ. نورا القحطاني</div>
+                        <div class="col" data-label="الوقت">الاثنين 2:00-4:00</div>
+                        <div class="col" data-label="الإجراءات">
+                            <button class="btn-sm btn-primary" onclick="registerCourse('COMP101')">تسجيل</button>
+                        </div>
+                    </div>
+
+                    <div class="table-row">
+                        <div class="col" data-label="رمز المقرر">HIST101</div>
+                        <div class="col" data-label="اسم المقرر">التاريخ الإسلامي</div>
+                        <div class="col" data-label="الساعات">2</div>
+                        <div class="col" data-label="المدرس">د. يوسف الشمري</div>
+                        <div class="col" data-label="الوقت">الأربعاء 2:00-4:00</div>
+                        <div class="col" data-label="الإجراءات">
+                            <button class="btn-sm btn-primary" onclick="registerCourse('HIST101')">تسجيل</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-actions">
+                <button class="btn-success" onclick="saveChanges()">حفظ التغييرات</button>
+                <button class="btn-secondary" onclick="goToPage('schedule.html')">عرض الجدول الدراسي</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 الجامعة الإسلامية بالمدينة المنورة - جميع الحقوق محفوظة</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

@@ -3,257 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بوابة القبول والتسجيل - الجامعة الإسلامية بالمدينة المنورة</title>
+    <title>بوابة الخدمات الأكاديمية - الجامعة الإسلامية بالمدينة المنورة</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <!-- Header -->
     <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="logo.png" alt="شعار الجامعة الإسلامية" class="logo">
+                    <div class="university-name">
+                        <h1>الجامعة الإسلامية بالمدينة المنورة</h1>
+                        <p>Islamic University of Madinah</p>
+                    </div>
+                </div>
+                <div class="nav-menu">
+                    <a href="#" class="nav-link">الرئيسية</a>
+                    <a href="#" class="nav-link">عن الجامعة</a>
+                    <a href="#" class="nav-link">الكليات</a>
+                    <a href="#" class="nav-link">الخدمات</a>
+                    <a href="#" class="nav-link">اتصل بنا</a>
+                </div>
+                <div class="nav-actions">
+                    <button class="login-btn" onclick="goToLogin()">دخول الطلاب</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">بوابة الخدمات الأكاديمية</h1>
+            <p class="hero-description">
+                منصة إلكترونية متطورة لإدارة جميع الخدمات الأكاديمية للطلاب في الجامعة الإسلامية بالمدينة المنورة.
+                تسجيل المقررات، متابعة الدرجات، والخدمات المالية في مكان واحد.
+            </p>
+            <div class="hero-actions">
+                <button class="btn-primary" onclick="goToLogin()">
+                    <span>دخول الطلاب</span>
+                    <i class="icon">→</i>
+                </button>
+                <button class="btn-secondary" onclick="scrollToServices()">
+                    <span>تعرف على الخدمات</span>
+                    <i class="icon">ℹ</i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
         <div class="container">
-            <div class="header-content">
-                <img src="ium-logo.png" alt="شعار الجامعة الإسلامية بالمدينة المنورة" class="logo">
-                <div class="header-text">
-                    <h1>الجامعة الإسلامية بالمدينة المنورة</h1>
-                    <p>بوابة القبول والتسجيل</p>
+            <h2 class="section-title">الخدمات الأكاديمية</h2>
+            <p class="section-description">مجموعة شاملة من الخدمات الإلكترونية لتسهيل رحلتك الأكاديمية</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="icon">📚</i>
+                    </div>
+                    <h3>تسجيل المقررات</h3>
+                    <p>تسجيل وإدارة المقررات الدراسية بسهولة، مع إمكانية عرض المقررات المتاحة والمواعيد</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="icon">📅</i>
+                    </div>
+                    <h3>الجدول الدراسي</h3>
+                    <p>عرض الجدول الأسبوعي للمقررات مع تفاصيل الأوقات والقاعات والمدرسين</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="icon">📊</i>
+                    </div>
+                    <h3>الدرجات والنتائج</h3>
+                    <p>متابعة الدرجات والنتائج الأكاديمية مع حساب المعدل التراكمي والفصلي</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="icon">🎯</i>
+                    </div>
+                    <h3>الخطة الدراسية</h3>
+                    <p>متابعة التقدم في الخطة الدراسية والمقررات المتبقية للتخرج</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="icon">💰</i>
+                    </div>
+                    <h3>الخدمات المالية</h3>
+                    <p>إدارة الرسوم الدراسية والمدفوعات مع عرض تفصيلي للحساب المالي</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="icon">🆔</i>
+                    </div>
+                    <h3>البطاقة الجامعية</h3>
+                    <p>عرض البطاقة الجامعية الرقمية مع جميع البيانات الأساسية للطالب</p>
                 </div>
             </div>
         </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="main">
-        <div class="container">
-            <!-- Welcome Section -->
-            <section class="welcome-section" id="welcome">
-                <div class="welcome-card">
-                    <div class="welcome-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h2>أهلاً وسهلاً بك</h2>
-                    <p>في بوابة القبول والتسجيل للجامعة الإسلامية بالمدينة المنورة</p>
-                    <div class="services-grid">
-                        <div class="service-card" onclick="showInquiryForm()">
-                            <i class="fas fa-search"></i>
-                            <h3>الاستعلام عن القبول</h3>
-                            <p>استعلم عن حالة قبولك في الجامعة</p>
-                        </div>
-                        <div class="service-card disabled">
-                            <i class="fas fa-file-alt"></i>
-                            <h3>تقديم طلب جديد</h3>
-                            <p>تقديم طلب قبول جديد</p>
-                        </div>
-                        <div class="service-card disabled">
-                            <i class="fas fa-info-circle"></i>
-                            <h3>معلومات القبول</h3>
-                            <p>شروط وضوابط القبول</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Inquiry Form -->
-            <section class="form-section hidden" id="inquiryForm">
-                <div class="form-card">
-                    <div class="form-header">
-                        <i class="fas fa-search"></i>
-                        <h2>الاستعلام عن القبول</h2>
-                        <p>يرجى إدخال البيانات المطلوبة للاستعلام عن حالة القبول</p>
-                    </div>
-                    <form class="inquiry-form" onsubmit="checkAdmission(event)">
-                        <div class="form-group">
-                            <label for="nationalId">رقم الهوية الوطنية</label>
-                            <input type="text" id="nationalId" name="nationalId" required 
-                                   placeholder="أدخل رقم الهوية الوطنية" maxlength="10">
-                        </div>
-                        <div class="form-group">
-                            <label for="mobile">رقم الجوال</label>
-                            <input type="tel" id="mobile" name="mobile" required 
-                                   placeholder="أدخل رقم الجوال" maxlength="10">
-                        </div>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-search"></i>
-                            استعلام
-                        </button>
-                    </form>
-                </div>
-            </section>
-
-            <!-- Admission Result -->
-            <section class="result-section hidden" id="admissionResult">
-                <div class="result-card success">
-                    <div class="result-header">
-                        <i class="fas fa-check-circle"></i>
-                        <h2>مبروك! تم قبولك</h2>
-                        <p>تهانينا لك بالقبول في الجامعة الإسلامية بالمدينة المنورة</p>
-                    </div>
-                    <div class="student-info">
-                        <h3>بيانات الطالبة</h3>
-                        <div class="info-grid">
-                            <div class="info-item">
-                                <span class="label">الاسم:</span>
-                                <span class="value" id="studentName">حصة مسحل فواز العتيبي</span>
-                            </div>
-                            <div class="info-item">
-                                <span class="label">رقم الهوية:</span>
-                                <span class="value" id="studentId">1034612992</span>
-                            </div>
-                            <div class="info-item">
-                                <span class="label">التخصص:</span>
-                                <span class="value" id="studentMajor">شريعة</span>
-                            </div>
-                            <div class="info-item">
-                                <span class="label">الدرجة العلمية:</span>
-                                <span class="value">بكالوريوس</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="next-steps">
-                        <h3>الخطوات التالية:</h3>
-                        <ul>
-                            <li><i class="fas fa-check"></i> قم بتأكيد قبولك</li>
-                            <li><i class="fas fa-credit-card"></i> سداد بقية رسوم التسجيل</li>
-                            <li><i class="fas fa-upload"></i> رفع إيصال السداد</li>
-                            <li><i class="fas fa-clock"></i> انتظر تأكيد التسجيل النهائي</li>
-                        </ul>
-                    </div>
-                    <button class="btn btn-success" onclick="confirmAdmission()">
-                        <i class="fas fa-check"></i>
-                        تأكيد القبول
-                    </button>
-                </div>
-            </section>
-
-            <!-- Confirmation Success -->
-            <section class="confirmation-section hidden" id="confirmationSuccess">
-                <div class="confirmation-card">
-                    <div class="success-icon">
-                        <i class="fas fa-thumbs-up"></i>
-                    </div>
-                    <h2>تم تأكيد القبول بنجاح</h2>
-                    <p>تهانينا لك بتأكيد قبولك في الجامعة الإسلامية بالمدينة المنورة</p>
-                    <div class="next-steps">
-                        <h3>الخطوات التالية:</h3>
-                        <ul>
-                            <li><i class="fas fa-check"></i> قم بسداد الرسوم الدراسية</li>
-                            <li><i class="fas fa-upload"></i> ارفع إيصال السداد</li>
-                            <li><i class="fas fa-clock"></i> انتظر تأكيد التسجيل النهائي</li>
-                        </ul>
-                    </div>
-                    <button class="btn btn-primary" onclick="showPayment()">
-                        <i class="fas fa-credit-card"></i>
-                        السداد
-                    </button>
-                </div>
-            </section>
-
-            <!-- Payment Section -->
-            <section class="payment-section hidden" id="paymentSection">
-                <div class="payment-card">
-                    <div class="payment-header">
-                        <i class="fas fa-credit-card"></i>
-                        <h2>فاتورة السداد</h2>
-                        <p>يرجى مراجعة تفاصيل الرسوم وإتمام عملية السداد</p>
-                    </div>
-
-                    <div class="student-summary">
-                        <h3>الطالبة:</h3>
-                        <p><strong>حصة مسحل فواز العتيبي</strong></p>
-                        <p><strong>التخصص:</strong> شريعة - (كلية الشريعة)</p>
-                    </div>
-
-                    <div class="payment-details">
-                        <h3>تفاصيل الرسوم</h3>
-                        <div class="payment-breakdown">
-                            <div class="payment-item">
-                                <span>بقية رسوم التسجيل:</span>
-                                <span class="amount">750 ريال سعودي</span>
-                            </div>
-                            <div class="payment-total">
-                                <span>المجموع الكلي:</span>
-                                <span class="total-amount">750 ريال سعودي</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bank-info">
-                        <h3>معلومات التحويل البنكي</h3>
-                        <div class="bank-details">
-                            <div class="bank-item">
-                                <span class="label">اسم البنك:</span>
-                                <span class="value">بنك الراجحي</span>
-                            </div>
-                            <div class="bank-item">
-                                <span class="label">رقم الحساب:</span>
-                                <span class="value">101000010006086685842</span>
-                            </div>
-                            <div class="bank-item">
-                                <span class="label">الآيبان:</span>
-                                <span class="value">SA7780000101608016685842</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="upload-section">
-                        <h3>رفع إيصال السداد</h3>
-                        <div class="upload-area" onclick="document.getElementById('receiptFile').click()">
-                            <i class="fas fa-cloud-upload-alt"></i>
-                            <p>اضغط هنا لرفع إيصال السداد</p>
-                            <small>الملفات المدعومة: PDF, JPG, PNG (حد أقصى 5 ميجابايت)</small>
-                            <input type="file" id="receiptFile" accept=".pdf,.jpg,.jpeg,.png" style="display: none;" onchange="handleFileUpload(this)">
-                        </div>
-                        <div id="uploadedFile" class="uploaded-file hidden">
-                            <i class="fas fa-file-check"></i>
-                            <span id="fileName"></span>
-                            <button onclick="removeFile()" class="remove-btn">
-                                <i class="fas fa-times"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="payment-actions">
-                        <button class="btn btn-secondary" onclick="goHome()">
-                            <i class="fas fa-home"></i>
-                            العودة للرئيسية
-                        </button>
-                        <button class="btn btn-success" onclick="submitPayment()">
-                            <i class="fas fa-paper-plane"></i>
-                            إرسال إيصال السداد
-                        </button>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Payment Success -->
-            <section class="success-section hidden" id="paymentSuccess">
-                <div class="success-card">
-                    <div class="success-animation">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                    <h2>تم إرسال إيصال السداد بنجاح</h2>
-                    <p>شكراً لك، تم استلام إيصال السداد وسيتم مراجعته خلال 24-48 ساعة</p>
-                    <div class="reference-info">
-                        <h3>رقم المرجع</h3>
-                        <p class="reference-number" id="referenceNumber">IUM-2025-001234</p>
-                        <small>احتفظ بهذا الرقم للمتابعة</small>
-                    </div>
-                    <div class="next-steps">
-                        <h3>ما التالي؟</h3>
-                        <ul>
-                            <li><i class="fas fa-clock"></i> سيتم مراجعة إيصال السداد</li>
-                            <li><i class="fas fa-envelope"></i> ستصلك رسالة تأكيد عبر الجوال</li>
-                            <li><i class="fas fa-graduation-cap"></i> ستتمكن من الوصول لنظام الطلاب</li>
-                        </ul>
-                    </div>
-                    <button class="btn btn-primary" onclick="goHome()">
-                        <i class="fas fa-home"></i>
-                        العودة للرئيسية
-                    </button>
-                </div>
-            </section>
-        </div>
-    </main>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">

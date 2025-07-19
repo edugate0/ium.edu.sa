@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الجدول الدراسي - بوابة الخدمات الأكاديمية</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .schedule-table {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: 100px repeat(6, 1fr);
+            gap: 1px;
+            background: #e5e7eb;
+        }
+        
+        .schedule-header {
+            background: #1e3a8a;
+            color: white;
+            padding: 15px 10px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .schedule-time {
+            background: #f8f9fa;
+            padding: 15px 10px;
+            text-align: center;
+            font-weight: 600;
+            color: #374151;
+            font-size: 0.8rem;
+        }
+        
+        .schedule-cell {
+            background: white;
+            padding: 10px 8px;
+            text-align: center;
+            min-height: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+        
+        .schedule-cell.has-class {
+            background: linear-gradient(135deg, #3b82f6 0%, #1e3a8a 100%);
+            color: white;
+            border-radius: 8px;
+            margin: 2px;
+        }
+        
+        .class-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 0.75rem;
+        }
+        
+        .class-room {
+            font-size: 0.7rem;
+            opacity: 0.9;
+        }
+        
+        .class-instructor {
+            font-size: 0.7rem;
+            opacity: 0.8;
+            margin-top: 2px;
+        }
+        
+        @media (max-width: 768px) {
+            .schedule-grid {
+                grid-template-columns: 80px repeat(6, 1fr);
+                font-size: 0.7rem;
+            }
+            
+            .schedule-header, .schedule-time {
+                padding: 10px 5px;
+                font-size: 0.7rem;
+            }
+            
+            .schedule-cell {
+                padding: 8px 4px;
+                min-height: 60px;
+                font-size: 0.65rem;
+            }
+            
+            .class-name {
+                font-size: 0.65rem;
+            }
+            
+            .class-room, .class-instructor {
+                font-size: 0.6rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .schedule-grid {
+                grid-template-columns: 60px repeat(6, 1fr);
+            }
+            
+            .schedule-header, .schedule-time {
+                padding: 8px 3px;
+                font-size: 0.6rem;
+            }
+            
+            .schedule-cell {
+                padding: 5px 2px;
+                min-height: 50px;
+                font-size: 0.6rem;
+            }
+            
+            .class-name {
+                font-size: 0.6rem;
+                margin-bottom: 2px;
+            }
+            
+            .class-room, .class-instructor {
+                font-size: 0.55rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="dashboard-header">
+        <div class="header-container">
+            <div class="header-logo">
+                <img src="logo.png" alt="شعار الجامعة الإسلامية" class="logo">
+                <div class="university-info">
+                    <h1>الجامعة الإسلامية بالمدينة المنورة</h1>
+                    <p>بوابة الخدمات الأكاديمية</p>
+                </div>
+            </div>
+            <div class="header-user">
+                <span class="user-name"></span>
+                <span class="user-id"></span>
+                <button class="logout-btn" onclick="logout()">تسجيل الخروج</button>
+            </div>
+        </div>
+    </header>
+
+    <nav class="page-nav">
+        <div class="nav-container">
+            <button class="back-btn" onclick="goToDashboard()">← العودة للوحة التحكم</button>
+            <h2>الجدول الدراسي</h2>
+        </div>
+    </nav>
+
+    <main class="page-main">
+        <div class="page-container">
+            <div class="info-card">
+                <h3>الجدول الأسبوعي - الفصل الأول 1446هـ</h3>
+                
+                <div class="schedule-table">
+                    <div class="schedule-grid">
+                        <!-- Header Row -->
+                        <div class="schedule-header">الوقت</div>
+                        <div class="schedule-header">الأحد</div>
+                        <div class="schedule-header">الاثنين</div>
+                        <div class="schedule-header">الثلاثاء</div>
+                        <div class="schedule-header">الأربعاء</div>
+                        <div class="schedule-header">الخميس</div>
+                        <div class="schedule-header">الجمعة</div>
+                        
+                        <!-- 8:00-9:30 -->
+                        <div class="schedule-time">8:00<br>9:30</div>
+                        <div class="schedule-cell has-class">
+                            <div class="class-name">مقدمة في علوم الشريعة</div>
+                            <div class="class-room">قاعة 101</div>
+                            <div class="class-instructor">د. محمد الأحمد</div>
+                        </div>
+                        <div class="schedule-cell has-class">
+                            <div class="class-name">الفقه الإسلامي (1)</div>
+                            <div class="class-room">قاعة 205</div>
+                            <div class="class-instructor">د. خالد العتيبي</div>
+                        </div>
+                        <div class="schedule-cell has-class">
+                            <div class="class-name">القرآن الكريم وعلومه (1)</div>
+                            <div class="class-room">قاعة 103</div>
+                            <div class="class-instructor">د. أحمد المحمود</div>
+                        </div>
+                        <div class="schedule-cell has-class">
+                            <div class="class-name">الحديث الشريف وعلومه (1)</div>
+                            <div class="class-room">قاعة 201</div>
+                            <div class="class-instructor">د. سالم الغامدي</div>
+                        </div>
+                        <div class="schedule-cell has-class">
+                            <div class="class-name">الفقه الإسلامي (1)</div>
+                            <div class="class-room">قاعة 205</div>
+                            <div class="class-instructor">د. خالد العتيبي</div>
+                        </div>
+                        <div class="schedule-cell"></div>
+                        
+                        <!-- 10:00-11:30 -->
+                        <div class="schedule-time">10:00<br>11:30</div>
+                        <div class="schedule-cell has-class">
+                            <div class="class-name">مقدمة في علوم الشريعة</div>
+                            <div class="class-room">قاعة 101</div>
+                            <div class="class-instructor">د. محمد الأحمد</div>
+                        </div>
+                        <div class="schedule-cell has-class">
+                            <div class="class-name">اللغة العربية (1)</div>
+                            <div class="class-room">قاعة 301</div>
+                            <div class="class-instructor">د. عبدالله السالم</div>
+                        </div>
+                        <div class="schedule-cell has-class">
+                            <div class="class-name">العقيدة الإسلامية (1)</div>
+                            <div class="class-room">قاعة 102</div>
+                            <div class="class-instructor">د. عبدالرحمن الحربي</div>
+                        </div>
+                        <div class="schedule-cell has-class">
+                            <div class="class-name">اللغة العربية (1)</div>
+                            <div class="class-room">قاعة 301</div>
+                            <div class="class-instructor">د. عبدالله السالم</div>
+                        </div>
+                        <div class="schedule-cell has-class">
+                            <div class="class-name">العقيدة الإسلامية (1)</div>
+                            <div class="class-room">قاعة 102</div>
+                            <div class="class-instructor">د. عبدالرحمن الحربي</div>
+                        </div>
+                        <div class="schedule-cell"></div>
+                        
+                        <!-- 12:00-1:30 -->
+                        <div class="schedule-time">12:00<br>1:30</div>
+                        <div class="schedule-cell"></div>
+                        <div class="schedule-cell"></div>
+                        <div class="schedule-cell"></div>
+                        <div class="schedule-cell"></div>
+                        <div class="schedule-cell"></div>
+                        <div class="schedule-cell"></div>
+                        
+                        <!-- 2:00-3:30 -->
+                        <div class="schedule-time">2:00<br>3:30</div>
+                        <div class="schedule-cell"></div>
+                        <div class="schedule-cell"></div>
+                        <div class="schedule-cell"></div>
+                        <div class="schedule-cell"></div>
+                        <div class="schedule-cell"></div>
+                        <div class="schedule-cell"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <h3>ملخص الجدول الدراسي</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="label">إجمالي المقررات:</span>
+                        <span class="value">6 مقررات</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">إجمالي الساعات:</span>
+                        <span class="value">18 ساعة</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">أيام الدراسة:</span>
+                        <span class="value">الأحد - الخميس</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">أول محاضرة:</span>
+                        <span class="value">الأحد 8:00 صباحاً</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">آخر محاضرة:</span>
+                        <span class="value">الخميس 11:30 صباحاً</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">فترات الفراغ:</span>
+                        <span class="value">12:00-2:00 يومياً</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <h3>تفاصيل المقررات</h3>
+                <div class="courses-table">
+                    <div class="table-header">
+                        <div class="col">رمز المقرر</div>
+                        <div class="col">اسم المقرر</div>
+                        <div class="col">المدرس</div>
+                        <div class="col">القاعة</div>
+                        <div class="col">الأوقات</div>
+                    </div>
+                    
+                    <div class="table-row">
+                        <div class="col" data-label="رمز المقرر">SHAR101</div>
+                        <div class="col" data-label="اسم المقرر">مقدمة في علوم الشريعة</div>
+                        <div class="col" data-label="المدرس">د. محمد الأحمد</div>
+                        <div class="col" data-label="القاعة">قاعة 101</div>
+                        <div class="col" data-label="الأوقات">الأحد والثلاثاء 8:00-9:30</div>
+                    </div>
+
+                    <div class="table-row">
+                        <div class="col" data-label="رمز المقرر">ARAB101</div>
+                        <div class="col" data-label="اسم المقرر">اللغة العربية (1)</div>
+                        <div class="col" data-label="المدرس">د. عبدالله السالم</div>
+                        <div class="col" data-label="القاعة">قاعة 301</div>
+                        <div class="col" data-label="الأوقات">الاثنين والأربعاء 10:00-11:30</div>
+                    </div>
+
+                    <div class="table-row">
+                        <div class="col" data-label="رمز المقرر">QURAN101</div>
+                        <div class="col" data-label="اسم المقرر">القرآن الكريم وعلومه (1)</div>
+                        <div class="col" data-label="المدرس">د. أحمد المحمود</div>
+                        <div class="col" data-label="القاعة">قاعة 103</div>
+                        <div class="col" data-label="الأوقات">الثلاثاء والخميس 8:00-9:30</div>
+                    </div>
+
+                    <div class="table-row">
+                        <div class="col" data-label="رمز المقرر">HADITH101</div>
+                        <div class="col" data-label="اسم المقرر">الحديث الشريف وعلومه (1)</div>
+                        <div class="col" data-label="المدرس">د. سالم الغامدي</div>
+                        <div class="col" data-label="القاعة">قاعة 201</div>
+                        <div class="col" data-label="الأوقات">الأحد والأربعاء 10:00-11:30</div>
+                    </div>
+
+                    <div class="table-row">
+                        <div class="col" data-label="رمز المقرر">FIQH101</div>
+                        <div class="col" data-label="اسم المقرر">الفقه الإسلامي (1)</div>
+                        <div class="col" data-label="المدرس">د. خالد العتيبي</div>
+                        <div class="col" data-label="القاعة">قاعة 205</div>
+                        <div class="col" data-label="الأوقات">الاثنين والخميس 8:00-9:30</div>
+                    </div>
+
+                    <div class="table-row">
+                        <div class="col" data-label="رمز المقرر">AQIDA101</div>
+                        <div class="col" data-label="اسم المقرر">العقيدة الإسلامية (1)</div>
+                        <div class="col" data-label="المدرس">د. عبدالرحمن الحربي</div>
+                        <div class="col" data-label="القاعة">قاعة 102</div>
+                        <div class="col" data-label="الأوقات">الثلاثاء والخميس 10:00-11:30</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-actions">
+                <button class="btn-success" onclick="printSchedule()">طباعة الجدول</button>
+                <button class="btn-secondary" onclick="goToPage('courses.html')">تعديل المقررات</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 الجامعة الإسلامية بالمدينة المنورة - جميع الحقوق محفوظة</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
